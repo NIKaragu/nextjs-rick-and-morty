@@ -17,13 +17,19 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
     }
   },
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
-    "no-undef": "error",
+    "no-undef":"off",
     "react/react-in-jsx-scope": "off",
-    "prettier/prettier": "warn",
+    "prettier/prettier": "error",
     "no-console": "warn", // Попереджувати про використання console.log
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }] // Підсвічувати невикористані змінні, ігнорувати аргументи, що починаються з _
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }], // Підсвічувати невикористані змінні, ігнорувати аргументи, що починаються з _
+    "react/jsx-uses-react": "off",
+    "react/prop-types": "off"
   }
 }

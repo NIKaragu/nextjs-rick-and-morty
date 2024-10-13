@@ -4,10 +4,12 @@
   "singleQuote": true,
   "tabWidth": 2,
   "useTabs": true,
-  "trailingComma": "es5",
   "bracketSpacing": true,
   "tsxBracketSameLine": false,
   "arrowParens": "avoid",
   "printWidth": 80,
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "trailingComma": "all",
+  "jsxSingleQuote": false,
+  "bracketSameLine": false
 }
