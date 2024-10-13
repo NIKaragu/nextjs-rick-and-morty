@@ -1,3 +1,29 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-undef": "error",
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": "warn",
+    "no-console": "warn", // Попереджувати про використання console.log
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }] // Підсвічувати невикористані змінні, ігнорувати аргументи, що починаються з _
+  }
 }
