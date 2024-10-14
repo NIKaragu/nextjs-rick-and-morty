@@ -19,6 +19,19 @@ body {
   background: var(--background);
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE і Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.custom-shape {
+  shape-outside: margin-box;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

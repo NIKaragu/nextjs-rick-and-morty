@@ -26,8 +26,8 @@ export default function AppHeader() {
   }, []);
 
   return (
-    <header className="flex flex-col">
-      <div className="flex justify-between items-center mb-3 box-border md:gap-8 lg:gap-28 2xl:gap-52">
+    <header className="flex flex-col sticky top-0 z-10 bg-inherit pt-4">
+      <div className="flex justify-between items-center mb-3 box-border md:gap-6 lg:gap-28 2xl:gap-52">
         <Image
           src={logo}
           alt="page logo"
