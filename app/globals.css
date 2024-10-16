@@ -53,8 +53,25 @@ body {
   }
 }
 
+.swiper-slide {
+  max-width: fit-content;
+  height: fit-content;
+}
+
+@layer components {
+  .swiper-father > :not(:first-child) {
+    @apply mt-8;
+  }
+  .header-link {
+    @apply hover:drop-shadow-black transition duration-100 text-xl;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .tv {
+    filter: drop-shadow(2px -4px 2px black); /* Тінь */
   }
 }

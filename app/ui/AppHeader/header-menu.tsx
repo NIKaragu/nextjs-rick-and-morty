@@ -8,7 +8,7 @@ export function HeaderMenu() {
   };
 
   return (
-    <button onClick={handleMenuClick} className="flex items-center">
+    <button onClick={handleMenuClick} className="flex items-center rotate-90">
       {isClicked ? (
         <>
           {/* @ts-expect-error lord-icon-issue-settings*/}

@@ -6,22 +6,13 @@ import { secondaryFont } from "../fonts";
 export function HeaderNavbar() {
   return (
     <nav className="flex flex-auto justify-between md:gap-10">
-      <Link
-        href={"/"}
-        className={`${secondaryFont.className} hover:drop-shadow-black transition duration-100 text-xl`}
-      >
-        About
+      <Link href={"/"} className={`${secondaryFont.className} header-link`}>
+        Chars
       </Link>
-      <Link
-        href={"/"}
-        className={`${secondaryFont.className} hover:drop-shadow-black transition duration-100 text-xl`}
-      >
+      <Link href={"/"} className={`${secondaryFont.className} header-link`}>
         Episodes
       </Link>
-      <Link
-        href={"/"}
-        className={`${secondaryFont.className} hover:drop-shadow-black transition duration-100 text-xl`}
-      >
+      <Link href={"/"} className={`${secondaryFont.className} header-link`}>
         Locations
       </Link>
     </nav>

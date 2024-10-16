@@ -1,16 +1,12 @@
 import Image from "next/image";
-import { headerFont } from "../fonts";
+import { headerFont } from "../../fonts";
 
-export default async function CharacterCard() {
-  const rickInfo = await fetch(
-    "https://rickandmortyapi.com/api/character/?name=rick"
-  ).then((info) => info.json());
-
+export default function CharacterCard({ charImg }: { charImg?: string }) {
   return (
-    <div className="flex flex-col h-fit w-48 lg:w-52 pt-3 pb-3 pl-3 pr-4 justify-center border-orange-950 border-solid border-2 rounded-lg">
+    <div className="flex flex-col hover:scale-105 transition-transform h-fit w-48 lg:w-52 pt-3 pb-3 pl-3 pr-4 justify-center border-orange-950 border-solid border-2 rounded-lg hover:shadow-2xl">
       <div className="flex justify-center mb-2">
         <Image
-          src={`${rickInfo.results[0].image}`}
+          src={charImg ?? ''}
           alt="rick photo"
           height={156}
           width={156}

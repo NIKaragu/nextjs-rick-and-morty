@@ -26,7 +26,7 @@ export default function AppHeader() {
   }, []);
 
   return (
-    <header className="flex w-full flex-col sticky top-0 z-10 bg-inherit pt-4">
+    <header className="flex w-full flex-col sticky top-0 bg-inherit pt-4 z-20">
       <div className="flex justify-between items-center mb-3 box-border md:gap-6 lg:gap-32 2xl:gap-52">
         <Image
           src={logo}
@@ -38,7 +38,7 @@ export default function AppHeader() {
 
         {windowWidth >= 768 && <HeaderNavbar />}
 
-        <div className="flex justify-center items-center gap-2 md:-right-1 sm:-right-1.5 relative">
+        <div className="flex justify-center items-center gap-2 md:-right-1 sm:-right-1 relative">
           {/* @ts-expect-error lord-icon-issue-settings*/}
           <lord-icon
             src="https://cdn.lordicon.com/lecprnjb.json"

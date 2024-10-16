@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { textFont } from "./ui/fonts";
+import AppHeader from "./ui/AppHeader/header";
 
 export const metadata: Metadata = {
   title: "Rick & Morty funlib",
@@ -17,7 +18,11 @@ export default function RootLayout({
       <body
         className={`${textFont.className} flex justify-center antialiased h-screen bg-[url('https://feji.us/a1ypi1')] bg-cover bg-center`}
       >
-        {children}
+        <div className="max-w-screen-2xl mx-auto w-screen mt-6 mb-6 mr-8 ml-8 bg-orange-50 rounded-xl pl-6 pr-6 pb-4 box-border overflow-y-scroll hide-scrollbar">
+          <AppHeader />
+          {children}
+          {/* <AppFooter /> */}
+        </div>
       </body>
     </html>
   );
