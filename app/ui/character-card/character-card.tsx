@@ -7,7 +7,7 @@ export default async function CharacterCard() {
   ).then((info) => info.json());
 
   return (
-    <div className="flex flex-col h-fit sm:w-48 lg:w-52 pt-3 pb-3 pl-3 pr-4 justify-center border-orange-950 border-solid border-2 rounded-lg">
+    <div className="flex flex-col h-fit w-48 lg:w-52 pt-3 pb-3 pl-3 pr-4 justify-center border-orange-950 border-solid border-2 rounded-lg">
       <div className="flex justify-center mb-2">
         <Image
           src={`${rickInfo.results[0].image}`}

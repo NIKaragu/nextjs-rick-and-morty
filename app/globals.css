@@ -28,8 +28,29 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-.custom-shape {
-  shape-outside: margin-box;
+.banner-header-grid-pos {
+  @media (width <= 390px) {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    border-bottom-right-radius: 0;
+  }
+}
+.banner-text-grid-pos {
+  @media (width <= 390px) {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+  }
+}
+.banner-tv-grid-pos {
+  @media (width <= 390px) {
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+  }
+}
+.banner-smooth-angle-display {
+  @media (width <= 390px) {
+    display: none;
+  }
 }
 
 @layer utilities {
