@@ -26,7 +26,7 @@ export default function AppHeader() {
   }, []);
 
   return (
-    <header className="flex w-full flex-col sticky top-0 bg-inherit pt-4 z-20">
+    <header className="flex w-full flex-col sticky top-0 bg-inherit pt-4 z-20 mb-4 ">
       <div className="flex justify-between items-center mb-3 box-border md:gap-6 lg:gap-32 2xl:gap-52">
         <Image
           src={logo}

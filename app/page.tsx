@@ -5,7 +5,7 @@ import TVIcon from "./ui/TV-icon.svg";
 
 export default async function Home() {
   return (
-    <main className="flex flex-col mt-4">
+    <main className="flex flex-col overflow-hidden">
       <div className="flex flex-col items-center sm:flex-row sm:items-end">
         <div className="grid grid-auto grid-auto w-full">
           {/* <div className="bg-orange-300 pl-6 pr-6 pb-4 pt-4 rounded-2xl box-content col-start-1 col-end-3"> */}
