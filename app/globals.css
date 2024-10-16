@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,15 +12,66 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE і Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.banner-header-grid-pos {
+  @media (width <= 390px) {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    border-bottom-right-radius: 0;
+  }
+}
+.banner-text-grid-pos {
+  @media (width <= 390px) {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+  }
+}
+.banner-tv-grid-pos {
+  @media (width <= 390px) {
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+  }
+}
+.banner-smooth-angle-display {
+  @media (width <= 390px) {
+    display: none;
+  }
+}
+
+.swiper-slide {
+  max-width: fit-content;
+  height: fit-content;
+}
+
+@layer components {
+  .swiper-father > :not(:first-child) {
+    @apply mt-8;
+  }
+  .header-link {
+    @apply hover:drop-shadow-black transition duration-100 text-xl;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .tv {
+    filter: drop-shadow(2px -4px 2px black); /* Тінь */
   }
 }

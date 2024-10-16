@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        black: "0px 1px 1px black",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

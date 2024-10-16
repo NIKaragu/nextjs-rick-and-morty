@@ -1,101 +1,38 @@
-import Image from "next/image";
+import CharacterSwiper from "./ui/characters-swiper/characters-swiper";
+import { headerFont } from "./ui/fonts";
+// import AppFooter from "./ui/footer";
+import TVIcon from "./ui/TV-icon.svg";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="flex flex-col overflow-hidden">
+      <div className="flex flex-col items-center sm:flex-row sm:items-end">
+        <div className="grid grid-auto grid-auto w-full">
+          {/* <div className="bg-orange-300 pl-6 pr-6 pb-4 pt-4 rounded-2xl box-content col-start-1 col-end-3"> */}
+          <h1
+            className={`${headerFont.className} banner-header-grid-pos text-5xl bg-orange-300 pl-6 pr-6 pb-4 pt-4 rounded-2xl box-border h-fit col-start-1 col-end-4 row-start-1 row-end-1 rounded-bl-none`}
+          >
+            Welcome to Rick & Morty fanlib page!
+          </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <p className="banner-text-grid-pos bg-orange-300 pl-6 pr-6 pb-4 rounded-2xl box-border col-start-1 col-end-3 row-start-2 row-end-2 h-full font-bold rounded-tl-none rounded-tr-none relative">
+            Here you can find lots of information about your favorite characters
+            Rick & Motry`s serial
+            <span className="banner-smooth-angle-display h-8 w-8 bg-orange-300 rounded-full absolute -right-4 -top-4 -z-0"></span>
+          </p>
+
+          {/* </div> */}
+          <div className="banner-tv-grid-pos flex flex-1 pl-4 pt-4 w-full h-full min-w-36 justify-center rounded-2xl bg-orange-50 col-start-3 col-end-3 row-start-2 justify-self-end z-10">
+            <TVIcon className="w-56 h-56 tv" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <div className="mt-16 swiper-father">
+        <h2 className={`${headerFont.className} text-4xl`}>Characters</h2>
+        <CharacterSwiper />
+        <CharacterSwiper playDirection="right" />
+        <CharacterSwiper />
+      </div>
+    </main>
   );
 }

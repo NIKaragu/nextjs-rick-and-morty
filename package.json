@@ -9,10 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lordicon/element": "^1.10.0",
+    "@lordicon/react": "^1.10.0",
+    "@svgr/webpack": "^8.1.0",
+    "lottie-web": "^5.12.2",
     "next": "14.2.15",
     "prettier": "^3.3.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
     "@types/node": "^20",
