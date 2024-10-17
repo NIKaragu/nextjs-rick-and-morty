@@ -1,16 +1,18 @@
 "use client";
 
-import { headerFont } from "../fonts";
 import CharacterCard from "./character-card/character-card";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode, Pagination, Keyboard } from "swiper/modules";
+import { Autoplay, FreeMode, Keyboard } from "swiper/modules";
 import "swiper/css";
 import { useEffect, useState } from "react";
+import { Character } from "@/app/lib/types/character";
 
 export default function CharacterSwiper({
   playDirection = "left",
+  charArray,
 }: {
   playDirection?: "left" | "right";
+  charArray: Character[];
 }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -29,7 +31,7 @@ export default function CharacterSwiper({
   return (
     <Swiper
       spaceBetween={20}
-      slidesPerView={(windowWidth / 208) - 1}
+      slidesPerView={windowWidth / 208 - 1}
       freeMode={true}
       loop={true}
       speed={10000}
@@ -47,9 +49,9 @@ export default function CharacterSwiper({
       modules={[FreeMode, Keyboard, Autoplay]}
       style={{ overflow: "visible" }}
     >
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((slide) => (
-        <SwiperSlide key={slide}>
-          <CharacterCard />
+      {charArray.map((character) => (
+        <SwiperSlide key={character.id}>
+          <CharacterCard charInfo={character} />
         </SwiperSlide>
       ))}
     </Swiper>
