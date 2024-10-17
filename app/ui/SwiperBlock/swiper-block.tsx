@@ -17,18 +17,26 @@ export default function SwiperBlock({ data }: { data: Character[] }) {
     if (!characters.length) {
       dispatch(loadCharacters());
     } else dispatch(setCharacters(data));
-  }, [dispatch]);
-
-  console.log(characters.length);
+  }, [dispatch, characters.length, data]);
 
   return (
     <>
-      <CharacterSwiper charArray={characters.slice(0, 200)} />
       <CharacterSwiper
-        charArray={characters.slice(200, 400)}
+        key={"kjh23vb4k213h4k1"}
+        charArray={characters.slice(0, Math.floor(characters.length / 3))}
+      />
+      <CharacterSwiper
+        key={"l1kj2b341"}
+        charArray={characters.slice(
+          Math.floor(characters.length / 3),
+          Math.floor(characters.length / 3) * 2
+        )}
         playDirection="right"
       />
-      <CharacterSwiper charArray={characters.slice(400, 600)} />
+      <CharacterSwiper
+        key={"p1o92341"}
+        charArray={characters.slice(Math.floor(characters.length / 3) * 2 + 1)}
+      />
     </>
   );
 }

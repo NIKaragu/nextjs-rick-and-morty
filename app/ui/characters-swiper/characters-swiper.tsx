@@ -16,11 +16,11 @@ export default function CharacterSwiper({
 }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -31,7 +31,7 @@ export default function CharacterSwiper({
   return (
     <Swiper
       spaceBetween={20}
-      slidesPerView={windowWidth / 208 - 1}
+      slidesPerView={windowWidth / 200 - 1}
       freeMode={true}
       loop={true}
       speed={10000}
@@ -48,6 +48,11 @@ export default function CharacterSwiper({
       }}
       modules={[FreeMode, Keyboard, Autoplay]}
       style={{ overflow: "visible" }}
+      onSwiper={(swiper) => {
+        swiper.autoplay.start();
+        console.log("slides:", windowWidth / 200 - 1);
+        console.log(swiper.width);
+      }}
     >
       {charArray.map((character) => (
         <SwiperSlide key={character.id}>

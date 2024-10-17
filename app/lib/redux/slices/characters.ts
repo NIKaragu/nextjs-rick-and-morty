@@ -40,6 +40,7 @@ export const charSlice = createSlice({
           state.isCharsLoading = false;
         }
       )
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .addCase(loadCharacters.rejected, (state, _) => {
         state.isCharsLoading = false;
         state.errorOnCharsLoading = "Error loading characters";

@@ -1,12 +1,12 @@
-import { getCharacters } from "./lib/api/api";
+import { fetchChars } from "./lib/api/fetches/fetchChars";
 import { headerFont } from "./ui/fonts";
 import SwiperBlock from "./ui/SwiperBlock/swiper-block";
 // import AppFooter from "./ui/footer";
 import TVIcon from "./ui/TV-icon.svg";
 
 export default async function Home() {
-  const res = await getCharacters("");
-  console.log("RESPONSE", res.results);
+  const response = await fetchChars();
+  const characters = response.map((page) => page.results).flat();
 
   return (
     <main className="flex flex-col overflow-hidden">
@@ -33,7 +33,7 @@ export default async function Home() {
       </div>
       <div className="mt-16 swiper-father">
         <h2 className={`${headerFont.className} text-4xl`}>Characters</h2>
-        <SwiperBlock data={res.results}/>
+        <SwiperBlock data={characters} />
       </div>
     </main>
   );
