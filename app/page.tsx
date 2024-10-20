@@ -1,9 +1,12 @@
-import CharacterSwiper from "./ui/characters-swiper/characters-swiper";
+import { fetchChars } from "./lib/api/fetches/fetchChars";
 import { headerFont } from "./ui/fonts";
-// import AppFooter from "./ui/footer";
+import SwiperBlock from "./ui/SwiperBlock/swiper-block";
 import TVIcon from "./ui/TV-icon.svg";
 
 export default async function Home() {
+  const response = await fetchChars();
+  const characters = response.map((page) => page.results).flat();
+
   return (
     <main className="flex flex-col overflow-hidden">
       <div className="flex flex-col items-center sm:flex-row sm:items-end">
@@ -22,16 +25,24 @@ export default async function Home() {
           </p>
 
           {/* </div> */}
-          <div className="banner-tv-grid-pos flex flex-1 pl-4 pt-4 w-full h-full min-w-36 justify-center rounded-2xl bg-orange-50 col-start-3 col-end-3 row-start-2 justify-self-end z-10">
+          <div className="banner-tv-grid-pos flex flex-1 pl-4 pt-4 w-full h-full min-w-36 justify-center rounded-2xl bg-orange-50 col-start-3 col-end-3 row-start-2 justify-self-end z-10 relative">
             <TVIcon className="w-56 h-56 tv" />
+            <div className="absolute tv-screen">
+              <iframe
+                className="w-full h-full -z-50"
+                width="100%"
+                height="100%"
+                src="https://s6.streamani.top/video1/VqmsfSMnOlEIPLx1R3HTCQ/1729213789/rickandmorty/1/original/101.mp4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className="mt-16 swiper-father">
         <h2 className={`${headerFont.className} text-4xl`}>Characters</h2>
-        <CharacterSwiper />
-        <CharacterSwiper playDirection="right" />
-        <CharacterSwiper />
+        <SwiperBlock data={characters} />
       </div>
     </main>
   );
