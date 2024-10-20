@@ -1,7 +1,6 @@
 import { fetchChars } from "./lib/api/fetches/fetchChars";
 import { headerFont } from "./ui/fonts";
 import SwiperBlock from "./ui/SwiperBlock/swiper-block";
-// import AppFooter from "./ui/footer";
 import TVIcon from "./ui/TV-icon.svg";
 
 export default async function Home() {
@@ -26,8 +25,18 @@ export default async function Home() {
           </p>
 
           {/* </div> */}
-          <div className="banner-tv-grid-pos flex flex-1 pl-4 pt-4 w-full h-full min-w-36 justify-center rounded-2xl bg-orange-50 col-start-3 col-end-3 row-start-2 justify-self-end z-10">
+          <div className="banner-tv-grid-pos flex flex-1 pl-4 pt-4 w-full h-full min-w-36 justify-center rounded-2xl bg-orange-50 col-start-3 col-end-3 row-start-2 justify-self-end z-10 relative">
             <TVIcon className="w-56 h-56 tv" />
+            <div className="absolute tv-screen">
+              <iframe
+                className="w-full h-full -z-50"
+                width="100%"
+                height="100%"
+                src="https://s6.streamani.top/video1/VqmsfSMnOlEIPLx1R3HTCQ/1729213789/rickandmorty/1/original/101.mp4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { Character } from "../types/character";
-import { Episode } from "../types/episode";
 
 const BASE_URL = "https://rickandmortyapi.com/api/";
 

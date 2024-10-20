@@ -23,13 +23,13 @@ export default function SwiperBlock({ data }: { data: Character[] }) {
     <>
       <CharacterSwiper
         key={"kjh23vb4k213h4k1"}
-        charArray={characters.slice(0, Math.floor(characters.length / 3))}
+        charArray={characters.slice(0, Math.floor(characters.length / 3) + 1)}
       />
       <CharacterSwiper
         key={"l1kj2b341"}
         charArray={characters.slice(
-          Math.floor(characters.length / 3),
-          Math.floor(characters.length / 3) * 2
+          Math.floor(characters.length / 3) + 1,
+          Math.floor(characters.length / 3) * 2 + 3
         )}
         playDirection="right"
       />

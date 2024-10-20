@@ -2,7 +2,7 @@ import { getCharacters } from "../api";
 
 export const fetchChars = async () => {
   const response = await Promise.allSettled(
-    Array.from({ length: 6 }, (_, i) => getCharacters(`page=${i + 1}`))
+    Array.from({ length: 9 }, (_, i) => getCharacters(`page=${i + 1}`))
   );
 
   const successfulResponses = response
