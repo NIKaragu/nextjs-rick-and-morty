@@ -43,11 +43,11 @@ export default function CharacterCard({ charInfo }: { charInfo: Character }) {
           <b>Species:</b> {charInfo.species}
         </p>
         <p className=" text-ellipsis whitespace-nowrap overflow-hidden">
-          <b>Subspecies:</b> {charInfo.type.length ? charInfo.type : "None"}
+          <b>Subspecies:</b> {charInfo.type ? charInfo.type : "None"}
         </p>
-        <p className="birthday">
+        {/* <p className="birthday">
           <b>Birthday:</b> {charInfo.created.slice(0, 10)}
-        </p>
+        </p> */}
         <p className="text-ellipsis whitespace-nowrap overflow-hidden">
           <b>O-Location:</b> {charInfo.location.name}
         </p>

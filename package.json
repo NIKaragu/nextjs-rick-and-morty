@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.8",
+    "@apollo/experimental-nextjs-app-support": "^0.11.3",
     "@lordicon/element": "^1.10.0",
     "@lordicon/react": "^1.10.0",
     "@reduxjs/toolkit": "^2.3.0",
     "@svgr/webpack": "^8.1.0",
     "classnames": "^2.5.1",
+    "graphql": "^16.9.0",
     "lottie-web": "^5.12.2",
     "next": "14.2.15",
     "prettier": "^3.3.3",
