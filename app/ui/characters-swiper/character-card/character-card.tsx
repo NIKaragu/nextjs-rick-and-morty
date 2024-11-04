@@ -6,7 +6,7 @@ import { Status } from "@/app/lib/enums/char-status";
 
 export default function CharacterCard({ charInfo }: { charInfo: Character }) {
   return (
-    <div className="flex flex-col flex-1 hover:scale-105 transition-transform h-fit w-full max-w-52 pt-3 pb-3 pl-3 pr-4 justify-center border-orange-950 border-solid border-2 rounded-lg hover:shadow-2xl">
+    <div className="flex flex-col hover:scale-105 h-full transition-transform w-40 sm:w-52 pt-3 pb-3 pl-3 pr-3 justify-center border-orange-950 border-solid border-2 rounded-lg hover:shadow-2xl">
       <div className="flex justify-center mb-2">
         <Image
           src={charInfo.image}
@@ -45,9 +45,6 @@ export default function CharacterCard({ charInfo }: { charInfo: Character }) {
         <p className=" text-ellipsis whitespace-nowrap overflow-hidden">
           <b>Subspecies:</b> {charInfo.type ? charInfo.type : "None"}
         </p>
-        {/* <p className="birthday">
-          <b>Birthday:</b> {charInfo.created.slice(0, 10)}
-        </p> */}
         <p className="text-ellipsis whitespace-nowrap overflow-hidden">
           <b>O-Location:</b> {charInfo.location.name}
         </p>

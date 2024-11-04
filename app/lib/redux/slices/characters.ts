@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Character } from "../../types/character";
-import { getCharacters } from "../../api/api";
+import { gql } from "@apollo/client";
+import { client } from "../../providers/apollo-provider";
 
 interface CharState {
   characters: Character[];
@@ -16,7 +17,30 @@ const initialState: CharState = {
 
 export const loadCharacters = createAsyncThunk(
   "characters/loadCharacters",
-  async () => (await getCharacters("")).results
+  async (page?: number) => {
+    const apolloClient = client();
+    const { data } = await apolloClient.query({
+      query: gql`
+        query {
+          characters(page: ${page}) {
+            results {
+              id
+              name
+              image
+              status
+              gender
+              species
+              type
+              location {
+                name
+              }
+            }
+          }
+        }
+      `,
+    });
+    return data.characters.results;
+  }
 );
 
 export const charSlice = createSlice({
@@ -25,6 +49,9 @@ export const charSlice = createSlice({
   reducers: {
     setCharacters: (state, action: PayloadAction<Character[]>) => {
       state.characters = action.payload;
+    },
+    addCharacters: (state, action) => {
+      state.characters = [...state.characters, ...action.payload];
     },
   },
   extraReducers: (builder) => {
@@ -36,16 +63,15 @@ export const charSlice = createSlice({
       .addCase(
         loadCharacters.fulfilled,
         (state, action: PayloadAction<Character[]>) => {
-          state.characters = action.payload;
+          state.characters = [...state.characters, ...action.payload];
           state.isCharsLoading = false;
         }
       )
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .addCase(loadCharacters.rejected, (state, _) => {
+      .addCase(loadCharacters.rejected, (state) => {
         state.isCharsLoading = false;
         state.errorOnCharsLoading = "Error loading characters";
       });
   },
 });
 
-export const { setCharacters } = charSlice.actions;
+export const { setCharacters, addCharacters } = charSlice.actions;

@@ -7,7 +7,7 @@ import {
   InMemoryCache,
 } from "@apollo/experimental-nextjs-app-support";
 
-const client = () => {
+export const client = () => {
   const httpLink = new HttpLink({
     uri: "https://rickandmortyapi.com/graphql",
     fetchOptions: { cache: "no-store" },

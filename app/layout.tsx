@@ -21,15 +21,15 @@ export default async function RootLayout({
       <body
         className={`${textFont.className} flex justify-center antialiased h-screen bg-[url('https://feji.us/a1ypi1')] bg-cover bg-center`}
       >
-        <ReduxProvider>
-          <ApolloProvider>
+        <ApolloProvider>
+          <ReduxProvider>
             <div className="max-w-screen-2xl w-screen mt-6 mb-6 mr-8 ml-8 bg-orange-50 rounded-xl pl-6 pr-6 pb-4 box-border overflow-y-scroll hide-scrollbar">
               <AppHeader />
               {children}
               <AppFooter />
             </div>
-          </ApolloProvider>
-        </ReduxProvider>
+          </ReduxProvider>
+        </ApolloProvider>
       </body>
     </html>
   );

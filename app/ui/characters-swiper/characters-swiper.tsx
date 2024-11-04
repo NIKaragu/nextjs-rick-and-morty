@@ -4,18 +4,20 @@ import CharacterCard from "./character-card/character-card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode, Keyboard } from "swiper/modules";
 import "swiper/css";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Character } from "@/app/lib/types/character";
 
 export default function CharacterSwiper({
   playDirection = "left",
   charArray,
+  // startPage,
 }: {
   playDirection?: "left" | "right";
   charArray: Character[];
+  // startPage: number;
 }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  // uhfosiuehffs = 
+  const slideID = useId();
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -49,14 +51,15 @@ export default function CharacterSwiper({
       }}
       modules={[FreeMode, Keyboard, Autoplay]}
       style={{ overflow: "visible" }}
-      onSwiper={(swiper) => {
+      onSlideChange={(swiper) => {
+        console.log(Math.floor(swiper.realIndex + (windowWidth / 208 - 1) + 1));
+      }}
+      onSwiper={async (swiper) => {
         swiper.autoplay.start();
-        console.log("slides: ", windowWidth / 208 - 1);
-        console.log("windowWidth: ", windowWidth);
       }}
     >
       {charArray.map((character) => (
-        <SwiperSlide key={character.id}>
+        <SwiperSlide key={slideID + Math.random()}>
           <CharacterCard charInfo={character} />
         </SwiperSlide>
       ))}

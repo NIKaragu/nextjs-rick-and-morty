@@ -1,24 +1,11 @@
-import { fetchCharsForCard } from "./lib/api/fetches/fetchChars";
+import { fetchCharsFirstly } from "./lib/api/fetches/fetchChars";
 import { Character } from "./lib/types/character";
 import { headerFont } from "./ui/fonts";
 import SwiperBlock from "./ui/SwiperBlock/swiper-block";
 import TVIcon from "./ui/TV-icon.svg";
 
 export default async function Home() {
-  const charsResponse = await Promise.allSettled([
-    fetchCharsForCard(1),
-    fetchCharsForCard(15),
-    fetchCharsForCard(29),
-  ]).then((responses) =>
-    responses.map(
-      (response) => response.status === "fulfilled" && response.value
-    )
-  );
-  const chars: Character[] = charsResponse
-    .map((resp) => resp.data.characters.results)
-    .flat();
-
-  // console.log("GraphQL RESPONSE: ", chars);
+  const chars: Character[] = await fetchCharsFirstly();
 
   return (
     <main className="flex flex-col overflow-hidden">
@@ -51,7 +38,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <div className="mt-16 swiper-father">
+      <div className="mt-16 swiper-father mb-4">
         <h2 className={`${headerFont.className} text-4xl`}>Characters</h2>
         <SwiperBlock data={chars} />
       </div>
