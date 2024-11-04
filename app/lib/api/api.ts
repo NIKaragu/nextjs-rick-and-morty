@@ -17,7 +17,7 @@ type ServerResponse<T> = {
 
 export async function get<T>(
   url: string,
-  params: string
+  params: string,
 ): Promise<ServerResponse<T>> {
   const request =
     params.length > 0 ? BASE_URL + url + "/?" + params : BASE_URL + url;
@@ -26,6 +26,8 @@ export async function get<T>(
   return response.json();
 }
 
-export const getCharacters = async (params: string): Promise<ServerResponse<Character>> => {
+export const getCharacters = async (
+  params: string,
+): Promise<ServerResponse<Character>> => {
   return await get<Character>("/character", params);
 };

@@ -3,7 +3,8 @@ import "./globals.css";
 import { textFont } from "./ui/fonts";
 import AppHeader from "./ui/AppHeader/header";
 import AppFooter from "./ui/footer";
-import ReduxProvider from "./providers/redux-provider";
+import ReduxProvider from "./lib/providers/redux-provider";
+import { ApolloProvider } from "./lib/providers/apollo-provider";
 
 export const metadata: Metadata = {
   title: "Rick & Morty funlib",
@@ -20,13 +21,15 @@ export default async function RootLayout({
       <body
         className={`${textFont.className} flex justify-center antialiased h-screen bg-[url('https://feji.us/a1ypi1')] bg-cover bg-center`}
       >
-        <ReduxProvider>
-          <div className="max-w-screen-2xl w-screen mt-6 mb-6 mr-8 ml-8 bg-orange-50 rounded-xl pl-6 pr-6 pb-4 box-border overflow-y-scroll hide-scrollbar">
-            <AppHeader />
-            {children}
-            <AppFooter />
-          </div>
-        </ReduxProvider>
+        <ApolloProvider>
+          <ReduxProvider>
+            <div className="max-w-screen-2xl w-screen mt-6 mb-6 mr-8 ml-8 bg-orange-50 rounded-xl pl-6 pr-6 pb-4 box-border overflow-y-scroll hide-scrollbar">
+              <AppHeader />
+              {children}
+              <AppFooter />
+            </div>
+          </ReduxProvider>
+        </ApolloProvider>
       </body>
     </html>
   );
