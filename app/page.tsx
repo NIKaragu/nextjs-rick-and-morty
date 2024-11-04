@@ -1,11 +1,11 @@
-import { fetchCharsFirstly } from "./lib/api/fetches/fetchChars";
+import { queryCharsFirst } from "./lib/api/queryChars/queryCharsFirst";
 import { Character } from "./lib/types/character";
 import { headerFont } from "./ui/fonts";
 import SwiperBlock from "./ui/SwiperBlock/swiper-block";
 import TVIcon from "./ui/TV-icon.svg";
 
 export default async function Home() {
-  const chars: Character[] = await fetchCharsFirstly();
+  const chars: Character[] = await queryCharsFirst();
 
   return (
     <main className="flex flex-col overflow-hidden">

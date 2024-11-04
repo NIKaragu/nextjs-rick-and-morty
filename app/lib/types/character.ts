@@ -1,5 +1,6 @@
 import { Status } from "../enums/char-status";
 import { Gender } from "../enums/gender";
+import { Episode } from "./episode";
 
 export interface Character {
   id: number;
@@ -10,14 +11,12 @@ export interface Character {
   gender: Gender;
   origin: {
     name: string;
-    url: string;
   };
   location: {
     name: string;
-    url: string;
   };
   image: string;
-  episode: string[];
+  episode: Episode[];
   url: string;
   created: string;
 }

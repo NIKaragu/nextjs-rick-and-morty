@@ -1,7 +1,7 @@
 import { Character } from "./character";
 import { SourceInfo } from "./sourceInfo";
 
-export interface ServerAnswer {
+export interface CharPageAnswer {
   characters: {
     info: SourceInfo;
     results: Character[];
